@@ -20,7 +20,7 @@ import {
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD8VtuS7xe9RRnjB6s8qsoikQR0Fg1d47Q",
+    apiKey: "----",
     authDomain: "ciie-c164e.firebaseapp.com",
     projectId: "ciie-c164e",
     storageBucket: "ciie-c164e.appspot.com",
