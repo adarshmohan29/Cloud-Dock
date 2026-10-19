@@ -65,7 +65,7 @@ const downloadCaddy = async (host, username, privateKeyPath) => {
             
             console.log('Initializing caddy...');
             ssh.exec(`cd proj && 
-                        git clone https://github.com/Shashankmallibhat/Dockerfiles.git && 
+                        git clone https://github.com/PASTE_YOUR_GITHUB_USERNAME/Dockerfiles.git && 
                         cd Dockerfiles && 
                         rm -rf .git &&
                         mv caddy ../`, 

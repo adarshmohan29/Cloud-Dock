@@ -76,7 +76,7 @@ function ProfileSidebar({ addClass, hideProfile }) {
          </div>
          <div className="profile-info-bx mb-4">
             <h4 className="mb-1 fs-22">{isAuthenticated && info.username}</h4>
-            <span>venki21122@gmail.com</span>
+            <span>{"paste your email here"}</span>
          </div>
          <div className="text-center mb-5">
             {/* <Link to="#" className="btn text-left light btn-dark d-block mb-3 ">

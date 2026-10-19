@@ -20,7 +20,7 @@ app.use(
 
 router.get("/allrepos", async (req, res) => {
     try {
-        const username = "venki200221"; // Assuming you want to keep it fixed for now
+        const username = "paste your GitHub username here"; // Assuming you want to keep it fixed for now
 
         if (!username) {
             return res.status(400).send('Username parameter is missing.');
