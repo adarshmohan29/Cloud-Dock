@@ -164,41 +164,5 @@ The build currently completes with warnings, mainly from unused components inher
 | `POST` | `/api/code/instance/:instanceId/dockerfiles` | Add deployment configuration |
 | `POST` | `/api/code/instance/:instanceId/startWebsite` | Build and start the application |
 
-## Known limitations
 
-- Only AWS is implemented; Azure and GCP are currently UI placeholders.
-- GitHub repository access contains a hardcoded legacy username.
-- Authentication between Auth0, GitHub OAuth, and the API is not unified.
-- Deployment work runs inside long HTTP requests instead of background jobs.
-- The UI waits a fixed 50 seconds for EC2 startup instead of polling AWS.
-- Docker templates support only React, Node.js, and Django.
-- Cost estimates are hardcoded for a small number of instance types.
-- There is no database, deployment history, rollback, job queue, or automated cleanup.
-- Shell commands and user-controlled repository URLs require validation before the API is exposed publicly.
-- Automated test coverage still needs to be added.
 
-## Security notice
-
-Older versions of this repository included AWS-related frontend environment values and private `.pem` files. Treat any previously committed credentials as compromised:
-
-1. Rotate the AWS access keys.
-2. Delete and recreate the affected EC2 key pairs.
-3. Never place AWS secrets in `REACT_APP_*` variables; those values are included in browser bundles.
-4. Keep `.env` and `.pem` files out of Git.
-5. Restrict EC2 security-group access, especially SSH access on port 22.
-
-Removing a secret in a new commit does not remove it from Git history. If the repository has been shared or made public, rotate the secret before doing anything else.
-
-## Suggested next steps
-
-1. Remove legacy credentials, private keys, and committed dependencies.
-2. Fix the frontend/backend port configuration and centralize the API URL.
-3. Replace the hardcoded GitHub username with the authenticated user.
-4. Add a database-backed deployment model and background job queue.
-5. Stream deployment logs and poll EC2 readiness.
-6. Add authorization, input validation, rollback, and automatic cleanup.
-7. Add unit and integration tests before exercising real AWS resources.
-
-## Disclaimer
-
-Creating EC2 instances can incur AWS charges. Review the selected region, AMI, instance type, security group, and IAM permissions before testing the provisioning routes.
